@@ -1,6 +1,6 @@
 // src/components/About.tsx
 import React from 'react';
-import { Box, Typography, Grid } from '@mui/material';
+import { Box, Typography, Grid, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
@@ -8,7 +8,7 @@ const About: React.FC = () => {
     <Box
       id="about"
       sx={{
-        py: 6,
+        p: 6,
         minHeight: '100vh',
         backgroundColor: 'background.paper'
       }}
@@ -19,15 +19,19 @@ const About: React.FC = () => {
         transition={{ duration: 0.8 }}
       >
         <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8}>
             <Box
               component="img"
               src="/images/profile_photos/profile1.png"
               alt="Citizen Kane"
-              sx={{ width: '100%', borderRadius: 3 }}
+              sx={{
+                width: '100%',
+                maxHeight: '600px',
+                objectFit: 'cover',
+              }}
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <Typography variant="h1" gutterBottom>
               Citizen Kane
             </Typography>
@@ -37,6 +41,14 @@ const About: React.FC = () => {
             <Typography variant="body1" paragraph>
               Over the last few years, he has leveraged small clubs and spontaneous podcast appearances to refine his style, cultivating a tight-knit following of fans who appreciate his daring performances. With every new stage he steps onto, Citizen Kane elevates his presence, fusing storytelling with an edgy comedic flair that leaves audiences craving more.
             </Typography>
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+            >
+              <Button variant="contained" sx={{ mt: 2, px: 5, py: 1.5 }}>
+                See Me Live
+              </Button>
+            </motion.div>
           </Grid>
         </Grid>
       </motion.div>
@@ -47,15 +59,19 @@ const About: React.FC = () => {
         style={{ marginTop: '3rem' }}
       >
         <Grid container spacing={4} justifyContent="space-between">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={3}>
             <Box
               component="img"
               src="/images/profile_photos/profile2.png"
               alt="Citizen Kane 2"
-              sx={{ width: '100%', borderRadius: 3 }}
+              sx={{
+                width: '100%',
+                maxWidth: '300px',
+                borderRadius: 3
+              }}
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={9}>
             <Typography variant="body1" paragraph>
               In 2024, Citizen Kane embarked on a grassroots tour across intimate stages in various cities. These shows resonated with local audiences, thanks to a blend of raw, relatable humor and boundary-pushing commentary that defines his emerging comedic identity.
             </Typography>
@@ -65,7 +81,7 @@ const About: React.FC = () => {
           </Grid>
         </Grid>
         <Grid container spacing={4} sx={{ marginTop: '3rem' }} alignItems="center">
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={8}>
             <Typography variant="body1" paragraph>
               An aspiring master of the roast, Citizen Kane draws inspiration from icons of the scene while forging his own unique path. Night after night, he refines his timing and delivery, aiming to shatter conventions and challenge audiences with every punchline.
             </Typography>
@@ -73,12 +89,16 @@ const About: React.FC = () => {
               Despite still navigating the earliest chapters of his career, Citizen Kane’s distinctive presence and unwavering dedication foreshadow a future of larger venues, fiercer roasts, and a comedic style set to leave an indelible mark on stand-up comedy.
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={4}>
             <Box
               component="img"
               src="/images/profile_photos/profile3.png"
               alt="Citizen Kane 3"
-              sx={{ width: '100%', borderRadius: 3 }}
+              sx={{
+                width: '100%',
+                maxWidth: '300px',
+                borderRadius: 3
+              }}
             />
           </Grid>
         </Grid>
