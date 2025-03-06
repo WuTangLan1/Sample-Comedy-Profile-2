@@ -1,7 +1,5 @@
-// src/components/Header.tsx
-
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Box, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 import InfoIcon from '@mui/icons-material/Info';
 import EventIcon from '@mui/icons-material/Event';
@@ -61,24 +59,32 @@ const Header: React.FC = () => {
         </Box>
         <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 } }}>
           {navLinks.map((link) => (
-            <motion.div key={link.id} whileHover={{ scale: 1.1 }}>
-              <Button
-                color="inherit"
+            <motion.div key={link.id} whileHover={{ scale: 1.05 }}>
+              <Link
                 onClick={() => scrollToSection(link.id)}
                 sx={{
-                  borderBottom: activeSection === link.id ? '2px solid #e91e63' : 'none',
+                  cursor: 'pointer',
+                  color: activeSection === link.id ? 'secondary.main' : 'inherit',
+                  textDecoration: 'none',
                   display: 'flex',
                   alignItems: 'center',
                   gap: 1,
                   padding: { xs: '4px 8px', sm: '6px 12px' },
-                  fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' }
+                  fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' },
+                  transition: 'all 0.3s ease-in-out',
+                  borderBottom: activeSection === link.id ? '2px solid #e91e63' : '2px solid transparent',
+                  '&:hover': {
+                    color: 'secondary.main',
+                    borderBottom: '2px solid #e91e63',
+                    transform: 'scale(1.05)'
+                  }
                 }}
               >
                 {link.icon}
                 <Box sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
                   {link.label}
                 </Box>
-              </Button>
+              </Link>
             </motion.div>
           ))}
         </Box>

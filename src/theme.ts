@@ -1,7 +1,6 @@
 // src/theme.ts
 import { createTheme } from '@mui/material/styles';
 
-// Extend the MUI theme to include custom animations
 declare module '@mui/material/styles' {
   interface Theme {
     customAnimations: {
@@ -25,72 +24,133 @@ declare module '@mui/material/styles' {
 
 const theme = createTheme({
   palette: {
-    mode: 'dark',
-    primary: { main: '#4a90e2', contrastText: '#ffffff' },
-    secondary: { main: '#e91e63', contrastText: '#ffffff' },
-    background: { default: '#121212', paper: '#1d1d1d' },
-    text: { primary: '#e0e0e0', secondary: '#a0a0a0', disabled: '#707070' },
-    error: { main: '#f44336' },
-    warning: { main: '#ff9800' },
-    info: { main: '#2196f3' },
-    success: { main: '#4caf50' }
+    primary: {
+      main: '#4a90e2',
+      contrastText: '#ffffff',
+    },
+    secondary: {
+      main: '#e91e63',
+      contrastText: '#ffffff',
+    },
+    background: {
+      default: '#0e0e12',
+      paper: 'rgba(29, 29, 33, 0.85)',
+    },
+    text: {
+      primary: '#e0e0e0',
+      secondary: '#b0b3b8',
+    },
+    action: {
+      hover: 'rgba(255, 255, 255, 0.1)',
+      selected: 'rgba(255, 255, 255, 0.1)',
+    },
   },
   typography: {
-    fontFamily: ['"Roboto"', 'sans-serif'].join(','),
-    h1: { fontSize: '2.5rem', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '1rem' },
-    h2: { fontSize: '2rem', fontWeight: 600, letterSpacing: '-0.015em', marginBottom: '0.75rem' },
-    h3: { fontSize: '1.75rem', fontWeight: 500, marginBottom: '0.75rem' },
-    h4: { fontSize: '1.5rem', fontWeight: 500, marginBottom: '0.5rem' },
-    h5: { fontSize: '1.25rem', fontWeight: 400, marginBottom: '0.5rem' },
-    body1: { fontSize: '1rem', lineHeight: 1.6 },
-    body2: { fontSize: '0.875rem', lineHeight: 1.5 },
-    button: { textTransform: 'none', fontWeight: 600 },
-    subtitle1: { fontSize: '1rem', fontWeight: 500 },
-    subtitle2: { fontSize: '0.875rem', fontWeight: 500 },
-    caption: { fontSize: '0.75rem' },
-    overline: { fontSize: '0.75rem', letterSpacing: '0.1em' }
-  },
-  spacing: 8,
-  shape: { borderRadius: 8 },
-  breakpoints: {
-    values: { xs: 0, sm: 600, md: 960, lg: 1280, xl: 1920 }
-  },
-  transitions: {
-    easing: {
-      easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
-      easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
-      easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
-      sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
+    fontFamily: ['Inter', 'Roboto', 'sans-serif'].join(','),
+    h1: {
+      fontSize: '3rem',
+      fontWeight: 800,
+      letterSpacing: '-0.03em',
+      marginBottom: '1rem',
     },
-    duration: {
-      shortest: 150, shorter: 200, short: 250,
-      standard: 300, complex: 375,
-      enteringScreen: 225, leavingScreen: 195
-    }
+    h2: {
+      fontSize: '2.5rem',
+      fontWeight: 700,
+      letterSpacing: '-0.02em',
+      marginBottom: '1rem',
+    },
+    h3: {
+      fontSize: '2rem',
+      fontWeight: 700,
+      marginBottom: '0.75rem',
+    },
+    h4: {
+      fontSize: '1.5rem',
+      fontWeight: 600,
+      marginBottom: '0.5rem',
+    },
+    h5: {
+      fontSize: '1.25rem',
+      fontWeight: 600,
+      marginBottom: '0.5rem',
+    },
+    subtitle1: {
+      fontSize: '1rem',
+      fontWeight: 600,
+    },
+    subtitle2: {
+      fontSize: '0.875rem',
+      fontWeight: 600,
+    },
+    body1: { fontSize: '1rem', lineHeight: 1.5 },
+    body2: { fontSize: '0.875rem' },
+    button: { fontWeight: 600 },
+    caption: { fontSize: '0.75rem', fontWeight: 500 },
+    overline: { fontSize: '0.75rem', letterSpacing: '0.1em' },
+  },
+  shape: {
+    borderRadius: 12,
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: 'none',
-          borderRadius: 8,
+          borderRadius: '12px',
           padding: '10px 20px',
-          transition: 'all 0.3s ease-in-out',
+          background: 'linear-gradient(145deg, #4a90e2, #356ac3)',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
           '&:hover': {
-            transform: 'scale(1.05)',
-            boxShadow: '0px 4px 20px rgba(0,0,0,0.2)'
-          }
-        }
-      }
+            transform: 'translateY(-3px)',
+            boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          background: 'rgba(29, 29, 33, 0.8)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+          border: '1px solid rgba(255,255,255,0.05)',
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: 'rgba(18,18,24,0.9)',
+          backdropFilter: 'blur(10px)',
+          boxShadow: 'none',
+          borderBottom: '1px solid rgba(255,255,255,0.05)',
+        },
+      },
     },
   },
   customAnimations: {
-    fadeIn: { initial: { opacity: 0 }, animate: { opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } } },
-    slideUp: { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } } },
-    zoomIn: { initial: { opacity: 0, scale: 0.8 }, animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeInOut' } } },
-    slideLeft: { initial: { opacity: 0, x: 20 }, animate: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeInOut' } } },
-    slideRight: { initial: { opacity: 0, x: -20 }, animate: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeInOut' } } }
-  }
+    fadeIn: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1, transition: { duration: 0.8, ease: 'easeInOut' } },
+    },
+    slideUp: {
+      initial: { opacity: 0, y: 40 },
+      animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+    },
+    slideLeft: {
+      initial: { opacity: 0, x: 40 },
+      animate: { opacity: 1, x: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+    },
+    slideRight: {
+      initial: { opacity: 0, x: -40 },
+      animate: { opacity: 1, x: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+    },
+    zoomIn: {
+      initial: { opacity: 0, scale: 0.95 },
+      animate: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+    },
+  },
 });
 
 export default theme;
