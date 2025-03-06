@@ -55,26 +55,45 @@ const Header: React.FC = () => {
             alt="Logo"
             sx={{ height: { xs: 30, sm: 40, md: 50 }, mr: { xs: 1, sm: 2 } }}
           />
-          <Typography
-            variant="h6"
-            sx={{
-              position: 'relative',
-              display: 'inline-block',
-              fontWeight: 'bold',
-              fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
-              color: '#ffffff',
-              '&::before': {
-                content: '"Citizen Kane"',
-                position: 'absolute',
-                left: '3px',
-                top: '3px',
-                color: '#e91e63',
-                zIndex: -1,
-              },
-            }}
-          >
-            Citizen Kane
+          <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' } }}>
+            <Box
+              component="span"
+              sx={{
+                position: 'relative',
+                display: 'inline-block',
+                color: '#ffffff',
+                '&::before': {
+                  content: '"Citizen"',
+                  position: 'absolute',
+                  left: '3px',
+                  top: '3px',
+                  color: '#e91e63',
+                  zIndex: -1,
+                },
+              }}
+            >
+              Citizen
+            </Box>{' '}
+            <Box
+              component="span"
+              sx={{
+                position: 'relative',
+                display: 'inline-block',
+                color: '#ffffff',
+                '&::before': {
+                  content: '"Kane"',
+                  position: 'absolute',
+                  left: '3px',
+                  top: '3px',
+                  color: '#e91e63',
+                  zIndex: -1,
+                },
+              }}
+            >
+              Kane
+            </Box>
           </Typography>
+
         </Box>
         <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 } }}>
           {navLinks.map((link) => (
