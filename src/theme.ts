@@ -83,7 +83,6 @@ const theme = createTheme({
         }
       }
     },
-    // Other component overrides (MuiAppBar, MuiCard, etc.) go here...
   },
   customAnimations: {
     fadeIn: { initial: { opacity: 0 }, animate: { opacity: 1, transition: { duration: 0.6, ease: 'easeInOut' } } },
