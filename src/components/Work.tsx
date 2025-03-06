@@ -1,8 +1,7 @@
-// src\components\Work.tsx
-
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Box, Typography, Card, CardContent, CardMedia, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 
 const workItems = [
   {
@@ -47,6 +46,27 @@ const cardVariants = {
   hover: { scale: 1.03, transition: { duration: 0.3 } }
 };
 
+const VideoPlayer: React.FC<{ src: string }> = ({ src }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+  return (
+    <Box sx={{ position: 'relative', width: '100%', overflow: 'hidden', height: 240 }}>
+      <video ref={videoRef} src={src} muted playsInline style={{ width: '100%', height: '100%', objectFit: 'cover', filter: isPlaying ? 'brightness(1)' : 'brightness(0.9)', transition: 'filter 0.3s ease' }} />
+      {!isPlaying && (
+        <Box onClick={handlePlay} sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', backgroundColor: 'rgba(0,0,0,0.4)' }}>
+          <PlayCircleOutlineIcon sx={{ fontSize: { xs: 48, sm: 64, md: 80 }, color: 'white' }} />
+        </Box>
+      )}
+    </Box>
+  );
+};
+
 const Work: React.FC = () => {
   return (
     <Box
@@ -79,19 +99,7 @@ const Work: React.FC = () => {
                       sx={{ height: 240, objectFit: 'cover', filter: 'brightness(0.9)', transition: 'filter 0.3s ease', '&:hover': { filter: 'brightness(1)' } }}
                     />
                   )}
-                  {item.video && (
-                    <Box sx={{ position: 'relative', width: '100%', overflow: 'hidden', height: 240 }}>
-                      <motion.video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.9)', transition: 'filter 0.3s ease' }}
-                        whileHover={{ filter: 'brightness(1)' }}
-                        src={item.video}
-                      />
-                    </Box>
-                  )}
+                  {item.video && <VideoPlayer src={item.video} />}
                   <CardContent sx={{ flexGrow: 1, backgroundColor: 'rgba(0,0,0,0.05)', backdropFilter: 'blur(5px)', padding: 2 }}>
                     <Typography variant="h5" sx={{ mb: 1, fontWeight: 600 }}>
                       {item.title}
