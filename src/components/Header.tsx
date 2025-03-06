@@ -40,26 +40,26 @@ const Header: React.FC = () => {
   }, [activeSection, sectionIds]);
 
   const navLinks = [
-    { id: 'about', label: 'About', icon: <InfoIcon /> },
-    { id: 'events', label: 'Events', icon: <EventIcon /> },
-    { id: 'work', label: 'Work', icon: <WorkOutlineIcon /> }
+    { id: 'about', label: 'About', icon: <InfoIcon sx={{ fontSize: { xs: 18, sm: 20, md: 24 } }} /> },
+    { id: 'events', label: 'Events', icon: <EventIcon sx={{ fontSize: { xs: 18, sm: 20, md: 24 } }} /> },
+    { id: 'work', label: 'Work', icon: <WorkOutlineIcon sx={{ fontSize: { xs: 18, sm: 20, md: 24 } }} /> }
   ];
 
   return (
     <AppBar position="sticky" color="primary" sx={{ opacity: 0.95 }}>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', px: { xs: 1, sm: 2, md: 3 } }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box
             component="img"
             src="/images/profile_photos/profile5.png"
             alt="Logo"
-            sx={{ height: { xs: 40, sm: 50 }, mr: 2 }}
+            sx={{ height: { xs: 30, sm: 40, md: 50 }, mr: { xs: 1, sm: 2 } }}
           />
-          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' } }}>
             Comedian Name
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 } }}>
           {navLinks.map((link) => (
             <motion.div key={link.id} whileHover={{ scale: 1.1 }}>
               <Button
@@ -69,7 +69,9 @@ const Header: React.FC = () => {
                   borderBottom: activeSection === link.id ? '2px solid #e91e63' : 'none',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 1
+                  gap: 1,
+                  padding: { xs: '4px 8px', sm: '6px 12px' },
+                  fontSize: { xs: '0.75rem', sm: '0.875rem', md: '1rem' }
                 }}
               >
                 {link.icon}
