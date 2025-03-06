@@ -1,5 +1,6 @@
+// src/components/Events.tsx
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia, Grid, Link } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, Grid, Link, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const events = [
@@ -90,6 +91,46 @@ const Events: React.FC = () => {
             </Grid>
           ))}
         </Grid>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{ marginTop: '3rem' }}
+      >
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="h4" sx={{ mb: 2, fontWeight: 600 }}>
+            Booking Citizen Kane
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 4 }}>
+            Citizen Kane is excited to hit the stage more often. If you're looking to book him for your upcoming event, please get in touch.
+          </Typography>
+          <Button
+            variant="contained"
+            sx={{
+              px: '1.5rem',
+              py: '0.8rem',
+              bgcolor: 'transparent',
+              border: '2px solid #e91e63',
+              color: '#ffffff',
+              borderRadius: 0,
+              boxShadow: 'none',
+              fontSize: '0.8rem',
+              fontWeight: 400,
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease',
+              '&:hover': {
+                bgcolor: 'transparent',
+                color: '#ffffff',
+                transform: 'translate(-4px, -4px)',
+                boxShadow: '-8px 8px 0 rgb(167, 37, 37)',
+                borderColor: '#e91e63',
+              },
+            }}
+            href="mailto:citizenkane@gmail.com?subject=DO%20NOT%20ACTUALLY%20SEND%20THIS"
+          >
+            Send Email
+          </Button>
+        </Box>
       </motion.div>
     </Box>
   );

@@ -95,15 +95,20 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none',
-          borderRadius: '12px',
-          padding: '10px 20px',
-          background: 'linear-gradient(145deg, #4a90e2, #356ac3)',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+          padding: '0.8rem 1.5rem',
+          backgroundColor: 'transparent',
+          border: '2px solid #e91e63',
+          color: '#000000',
+          fontSize: '0.8rem',
+          fontWeight: '400',
+          borderRadius: 0,
+          cursor: 'pointer',
+          transition: 'transform 0.5s ease, background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease',
           '&:hover': {
-            transform: 'translateY(-3px)',
-            boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
+            backgroundColor: '#e91e63',
+            borderColor: '#e91e63',
+            color: '#ffffff',
+            transform: 'scale(1.05)',
           },
         },
       },

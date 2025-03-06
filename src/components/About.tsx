@@ -46,18 +46,27 @@ const About: React.FC = () => {
                 animate={{ y: [0, -10, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
               >
-                <Button
-                  variant="contained"
-                  sx={{
-                    px: 5,
-                    py: 1.5,
-                    bgcolor: '#e91e63 !important',
-                    backgroundImage: 'none',
-                    '&:hover': {
-                      bgcolor: '#c2185b',
-                      backgroundImage: 'none'
-                    }
-                  }}
+              <Button
+                variant="contained"
+                sx={{
+                  px: '1.5rem',
+                  py: '0.8rem',
+                  bgcolor: 'transparent',
+                  border: '2px solid #e91e63',
+                  color: '#ffffff',
+                  borderRadius: 0,
+                  boxShadow: 'none',
+                  fontSize: '0.8rem',
+                  fontWeight: 400,
+                  transition: 'transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease',
+                  '&:hover': {
+                    bgcolor: 'transparent',
+                    color: '#ffffff',
+                    transform: 'translate(-4px, -4px)',
+                    boxShadow: '-8px 8px 0 rgb(167, 37, 37)',
+                    borderColor: '#e91e63',
+                  },
+                }}
                   onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   See Me Live
@@ -71,7 +80,7 @@ const About: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        style={{ marginTop: '3rem' }}
+        style={{ marginTop: '1rem' }}
       >
         <Grid container spacing={4} justifyContent="space-between">
           <Grid item xs={12} md={3}>
@@ -95,7 +104,7 @@ const About: React.FC = () => {
             </Typography>
           </Grid>
         </Grid>
-        <Grid container spacing={4} sx={{ marginTop: '3rem' }} alignItems="center">
+        <Grid container spacing={4} alignItems="center">
           <Grid item xs={12} md={8}>
             <Typography variant="body1" paragraph>
               An aspiring master of the roast, Citizen Kane draws inspiration from icons of the scene while forging his own unique path. Night after night, he refines his timing and delivery, aiming to shatter conventions and challenge audiences with every punchline.
