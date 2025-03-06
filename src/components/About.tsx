@@ -1,6 +1,6 @@
 // src/components/About.tsx
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const About: React.FC = () => {
@@ -18,14 +18,70 @@ const About: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <Typography variant="h2" gutterBottom>
-          About
-        </Typography>
-        <Typography variant="body1">
-          This is a sample bio for an emerging comedian. With a unique sense of humor and a passion for
-          storytelling, this artist brings a fresh and engaging perspective to every performance. Their shows
-          are known for being electrifying and unforgettable.
-        </Typography>
+        <Grid container spacing={4} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src="/images/profile_photos/profile1.png"
+              alt="Citizen Kane"
+              sx={{ width: '100%', borderRadius: 3 }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="h1" gutterBottom>
+              Citizen Kane
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Citizen Kane, an emerging comedic voice with a fearless sense of humor, has been honing his craft and steadily earning a reputation for quick-witted roasts. His journey began in intimate local venues, where an unfiltered approach to comedy captured the attention of late-night crowds seeking sharp punchlines and unapologetic honesty.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Over the last few years, he has leveraged small clubs and spontaneous podcast appearances to refine his style, cultivating a tight-knit following of fans who appreciate his daring performances. With every new stage he steps onto, Citizen Kane elevates his presence, fusing storytelling with an edgy comedic flair that leaves audiences craving more.
+            </Typography>
+          </Grid>
+        </Grid>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{ marginTop: '3rem' }}
+      >
+        <Grid container spacing={4} justifyContent="space-between">
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src="/images/profile_photos/profile2.png"
+              alt="Citizen Kane 2"
+              sx={{ width: '100%', borderRadius: 3 }}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Typography variant="body1" paragraph>
+              In 2024, Citizen Kane embarked on a grassroots tour across intimate stages in various cities. These shows resonated with local audiences, thanks to a blend of raw, relatable humor and boundary-pushing commentary that defines his emerging comedic identity.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Though he’s only at the dawn of what promises to be a remarkable career, his tenacity and bold comedic vision have already sparked widespread curiosity in stand-up circles. With each city he visits, Citizen Kane continues to sharpen his craft, channeling personal experiences into a performance style both unfiltered and genuine.
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container spacing={4} sx={{ marginTop: '3rem' }} alignItems="center">
+          <Grid item xs={12} md={6}>
+            <Typography variant="body1" paragraph>
+              An aspiring master of the roast, Citizen Kane draws inspiration from icons of the scene while forging his own unique path. Night after night, he refines his timing and delivery, aiming to shatter conventions and challenge audiences with every punchline.
+            </Typography>
+            <Typography variant="body1" paragraph>
+              Despite still navigating the earliest chapters of his career, Citizen Kane’s distinctive presence and unwavering dedication foreshadow a future of larger venues, fiercer roasts, and a comedic style set to leave an indelible mark on stand-up comedy.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box
+              component="img"
+              src="/images/profile_photos/profile3.png"
+              alt="Citizen Kane 3"
+              sx={{ width: '100%', borderRadius: 3 }}
+            />
+          </Grid>
+        </Grid>
       </motion.div>
     </Box>
   );
