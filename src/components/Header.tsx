@@ -54,7 +54,7 @@ const Header: React.FC = () => {
             sx={{ height: { xs: 30, sm: 40, md: 50 }, mr: { xs: 1, sm: 2 } }}
           />
           <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' } }}>
-            Comedian Name
+            Citizen Kane
           </Typography>
         </Box>
         <Box sx={{ display: 'flex', gap: { xs: 1, sm: 2 } }}>

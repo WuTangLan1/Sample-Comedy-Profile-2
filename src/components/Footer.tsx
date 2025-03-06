@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
         </IconButton>
       </Box>
       <Typography variant="caption" display="block" sx={{ mt: 1 }}>
-        © {new Date().getFullYear()} Comedian Name. All rights reserved.
+        © {new Date().getFullYear()} Citizen Kane. All rights reserved.
       </Typography>
     </Box>
   );

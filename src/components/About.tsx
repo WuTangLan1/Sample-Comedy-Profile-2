@@ -41,14 +41,29 @@ const About: React.FC = () => {
             <Typography variant="body1" paragraph>
               Over the last few years, he has leveraged small clubs and spontaneous podcast appearances to refine his style, cultivating a tight-knit following of fans who appreciate his daring performances. With every new stage he steps onto, Citizen Kane elevates his presence, fusing storytelling with an edgy comedic flair that leaves audiences craving more.
             </Typography>
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-            >
-              <Button variant="contained" sx={{ mt: 2, px: 5, py: 1.5 }}>
-                See Me Live
-              </Button>
-            </motion.div>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    px: 5,
+                    py: 1.5,
+                    bgcolor: '#e91e63 !important',
+                    backgroundImage: 'none',
+                    '&:hover': {
+                      bgcolor: '#c2185b',
+                      backgroundImage: 'none'
+                    }
+                  }}
+                  onClick={() => document.getElementById('events')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  See Me Live
+                </Button>
+              </motion.div>
+            </Box>
           </Grid>
         </Grid>
       </motion.div>
