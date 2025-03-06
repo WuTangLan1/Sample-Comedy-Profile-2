@@ -12,7 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 3, md: 4 } }}>
+      <Container maxWidth={false} sx={{ width: '100%', py: { xs: 2, sm: 3, md: 4 }, px: 0 }}>
         {children}
       </Container>
       <Footer />
