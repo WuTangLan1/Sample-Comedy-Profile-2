@@ -55,7 +55,24 @@ const Header: React.FC = () => {
             alt="Logo"
             sx={{ height: { xs: 30, sm: 40, md: 50 }, mr: { xs: 1, sm: 2 } }}
           />
-          <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' } }}>
+          <Typography
+            variant="h6"
+            sx={{
+              position: 'relative',
+              display: 'inline-block',
+              fontWeight: 'bold',
+              fontSize: { xs: '1rem', sm: '1.25rem', md: '1.5rem' },
+              color: '#ffffff',
+              '&::before': {
+                content: '"Citizen Kane"',
+                position: 'absolute',
+                left: '3px',
+                top: '3px',
+                color: '#e91e63',
+                zIndex: -1,
+              },
+            }}
+          >
             Citizen Kane
           </Typography>
         </Box>

@@ -1,4 +1,3 @@
-// src/components/Events.tsx
 import React from 'react';
 import { Box, Typography, Card, CardContent, CardMedia, Grid, Link, Button } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -60,28 +59,84 @@ const Events: React.FC = () => {
           {events.map((event, index) => (
             <Grid item xs={12} md={4} key={index}>
               <motion.div variants={cardVariants} whileHover="hover">
-                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3, overflow: 'hidden' }}>
-                  <CardMedia
-                    component="img"
-                    image={event.image}
-                    alt={event.title}
-                    sx={{ height: 240, objectFit: 'cover', filter: 'brightness(0.9)', transition: 'filter 0.3s ease', '&:hover': { filter: 'brightness(1)' } }}
-                  />
+                <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: 2, boxShadow: 3, overflow: 'hidden', position: 'relative' }}>
+                  <Box sx={{ position: 'relative' }}>
+                    <CardMedia
+                      component="img"
+                      image={event.image}
+                      alt={event.title}
+                      sx={{ height: 240, objectFit: 'cover', filter: 'brightness(0.9)', transition: 'filter 0.3s ease', '&:hover': { filter: 'brightness(1)' } }}
+                    />
+                    <motion.div
+                      initial={{ scale: 0.5, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                      viewport={{ once: false }}
+                      style={{ position: 'absolute', top: 0, right: 0 }}
+                    >
+                      <Box sx={{ backgroundColor: 'black', color: 'white', p: 1.5, fontWeight: 600, fontSize: '0.75rem' }}>
+                        {event.date} — {event.location}
+                      </Box>
+                    </motion.div>
+                  </Box>
                   <CardContent sx={{ flexGrow: 1, backgroundColor: 'rgba(0,0,0,0.05)', backdropFilter: 'blur(5px)', p: 2 }}>
                     <Typography variant="h5" sx={{ mb: 1, fontWeight: 600 }}>
                       {event.title}
-                    </Typography>
-                    <Typography variant="subtitle2" sx={{ mb: 1, color: 'text.secondary' }}>
-                      {event.date} — {event.location}
                     </Typography>
                     <Typography variant="body2" sx={{ mb: 2 }}>
                       {event.description}
                     </Typography>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                      <Link href={event.ticketLink} target="_blank" rel="noopener" sx={{ fontWeight: 600, color: 'secondary.main', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                      <Link
+                        href={event.ticketLink}
+                        target="_blank"
+                        rel="noopener"
+                        sx={{
+                          fontWeight: 600,
+                          color: 'secondary.main',
+                          textDecoration: 'none',
+                          position: 'relative',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            bottom: -2,
+                            left: '50%',
+                            width: '100%',
+                            height: '2px',
+                            backgroundColor: 'secondary.main',
+                            transform: 'translateX(-50%) scaleX(0)',
+                            transformOrigin: 'center',
+                            transition: 'transform 0.3s ease-in-out'
+                          },
+                          '&:hover::after': { transform: 'translateX(-50%) scaleX(1)' }
+                        }}
+                      >
                         Buy Tickets
                       </Link>
-                      <Link href={event.websiteLink} target="_blank" rel="noopener" sx={{ fontWeight: 600, color: 'secondary.main', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
+                      <Link
+                        href={event.websiteLink}
+                        target="_blank"
+                        rel="noopener"
+                        sx={{
+                          fontWeight: 600,
+                          color: 'secondary.main',
+                          textDecoration: 'none',
+                          position: 'relative',
+                          '&::after': {
+                            content: '""',
+                            position: 'absolute',
+                            bottom: -2,
+                            left: '50%',
+                            width: '100%',
+                            height: '2px',
+                            backgroundColor: 'secondary.main',
+                            transform: 'translateX(-50%) scaleX(0)',
+                            transformOrigin: 'center',
+                            transition: 'transform 0.3s ease-in-out'
+                          },
+                          '&:hover::after': { transform: 'translateX(-50%) scaleX(1)' }
+                        }}
+                      >
                         Visit Website
                       </Link>
                     </Box>
@@ -123,8 +178,8 @@ const Events: React.FC = () => {
                 color: '#ffffff',
                 transform: 'translate(-4px, -4px)',
                 boxShadow: '-8px 8px 0 rgb(167, 37, 37)',
-                borderColor: '#e91e63',
-              },
+                borderColor: '#e91e63'
+              }
             }}
             href="mailto:citizenkane@gmail.com?subject=DO%20NOT%20ACTUALLY%20SEND%20THIS"
           >
