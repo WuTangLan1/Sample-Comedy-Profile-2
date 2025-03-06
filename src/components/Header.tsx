@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { AppBar, Toolbar, Typography, Box, Link } from '@mui/material';
 import { motion } from 'framer-motion';
 import InfoIcon from '@mui/icons-material/Info';
@@ -7,7 +7,8 @@ import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 
 const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('about');
-  const sectionIds = ['about', 'events', 'work'];
+
+  const sectionIds = useMemo(() => ['about', 'events', 'work'], []);
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -36,6 +37,7 @@ const Header: React.FC = () => {
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [activeSection, sectionIds]);
+
 
   const navLinks = [
     { id: 'about', label: 'About', icon: <InfoIcon sx={{ fontSize: { xs: 18, sm: 20, md: 24 } }} /> },
